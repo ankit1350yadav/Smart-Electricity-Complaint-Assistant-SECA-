@@ -1,0 +1,2 @@
+import { Complaint } from '@/lib/types';import { Card } from '@/components/ui/card';import { StatusBadge } from '@/components/ui/status-badge';import Link from 'next/link';
+export function ComplaintCard({complaint}:{complaint:Complaint}){return <Card><div className="flex items-start justify-between gap-4"><div><Link href={`/complaints/${complaint.id}`} className="text-lg font-bold">{complaint.title}</Link><p className="text-sm opacity-75">{complaint.ai_summary}</p></div><StatusBadge status={complaint.status}/></div></Card>}

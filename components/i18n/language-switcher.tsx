@@ -1,0 +1,3 @@
+'use client';
+import { useRouter, useSearchParams } from 'next/navigation';import { localeNames, locales, type Locale } from '@/lib/i18n/dictionaries';
+export function LanguageSwitcher(){const router=useRouter();const params=useSearchParams();const current=(params.get('lang')||'en') as Locale;return <label className="flex items-center gap-2 text-sm"><span className="sr-only">Language</span><select className="rounded-xl border border-border bg-white/70 px-3 py-2 dark:bg-slate-900/70" value={current} onChange={e=>{const next=new URLSearchParams(params);next.set('lang',e.target.value);router.push(`?${next.toString()}`)}}>{locales.map(locale=><option key={locale} value={locale}>{localeNames[locale]}</option>)}</select></label>}

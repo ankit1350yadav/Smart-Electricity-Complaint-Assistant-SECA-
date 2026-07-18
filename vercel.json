@@ -1,0 +1,1 @@
+{"framework":"nextjs","regions":["bom1"],"crons":[{"path":"/api/complaints","schedule":"0 2 * * *"}]}

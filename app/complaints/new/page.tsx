@@ -1,0 +1,2 @@
+import { Card } from '@/components/ui/card';import { ComplaintForm } from '@/components/complaints/complaint-form';import { Sidebar } from '@/components/layout/sidebar';
+export default function NewComplaint(){return <main className="flex"><Sidebar/><section className="mx-auto max-w-3xl p-6"><h1 className="mb-6 text-3xl font-black">Create Complaint</h1><Card><ComplaintForm/></Card></section></main>}

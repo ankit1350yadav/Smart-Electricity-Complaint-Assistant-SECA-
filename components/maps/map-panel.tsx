@@ -1,0 +1,1 @@
+export function MapPanel(){return <div className="flex h-72 items-center justify-center rounded-2xl border border-dashed border-border bg-primary/5 text-center">Google Maps complaint heatmap panel<br/>Configure NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to enable live maps.</div>}
