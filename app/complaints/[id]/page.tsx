@@ -1,0 +1,2 @@
+import { Card } from '@/components/ui/card';import { StatusBadge } from '@/components/ui/status-badge';
+export default async function ComplaintDetails({params}:{params:Promise<{id:string}>}){const {id}=await params;return <main className="mx-auto max-w-4xl space-y-6 p-6"><h1 className="text-3xl font-black">Complaint {id}</h1><Card><StatusBadge status="in_progress"/><p className="mt-4">Timeline: Submitted → Acknowledged → Assigned → In progress.</p></Card></main>}

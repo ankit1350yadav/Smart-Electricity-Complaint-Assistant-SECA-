@@ -1,0 +1,2 @@
+'use client';import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+const data=[{name:'Outage',value:42},{name:'Voltage',value:27},{name:'Meter',value:18},{name:'Hazard',value:11}];export function AnalyticsChart(){return <ResponsiveContainer width="100%" height={260}><BarChart data={data}><XAxis dataKey="name"/><YAxis/><Tooltip/><Bar dataKey="value" fill="#0f766e" radius={8}/></BarChart></ResponsiveContainer>}

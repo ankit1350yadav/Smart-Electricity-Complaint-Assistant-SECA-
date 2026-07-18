@@ -1,0 +1,2 @@
+import { describe, expect, it } from 'vitest';import { aiSchema } from '@/lib/validators/complaint';
+describe('AI schema',()=>{it('validates structured complaint output',()=>{expect(aiSchema.parse({category:'Power Outage',priority:'high',severity:8,department:'Operations',summary:'Area outage',safety:['Stay away'],confidence:.9,duplicateRisk:.1,engineerBrief:'Check feeder',structuredComplaint:'Power outage near market'}).category).toBe('Power Outage');});});

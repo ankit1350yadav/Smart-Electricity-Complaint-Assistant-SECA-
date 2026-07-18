@@ -1,0 +1,3 @@
+import type { Config } from 'tailwindcss';
+const config: Config = { darkMode: ['class'], content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.{ts,tsx}'], theme: { extend: { colors: { border: 'hsl(var(--border))', background: 'hsl(var(--background))', foreground: 'hsl(var(--foreground))', primary: { DEFAULT: '#0f766e', foreground: '#ffffff' }, saffron: '#ff9933', govgreen: '#138808', navy: '#0b1f3a' }, borderRadius: { xl: '1rem', '2xl': '1.25rem' }, boxShadow: { glow: '0 20px 80px rgba(15,118,110,.18)' } } }, plugins: [require('tailwindcss-animate')] };
+export default config;

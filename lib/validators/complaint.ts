@@ -1,0 +1,4 @@
+import { z } from 'zod';import { categories } from '@/lib/types';
+export const complaintInputSchema=z.object({description:z.string().min(10).max(4000),address:z.string().min(3).max(500),lat:z.number().optional(),lng:z.number().optional(),imageUrl:z.string().url().optional()});
+export const statusSchema=z.object({status:z.enum(['submitted','acknowledged','assigned','in_progress','resolved','closed','rejected']),engineerId:z.string().uuid().optional(),note:z.string().max(1000).optional()});
+export const aiSchema=z.object({category:z.enum(categories),priority:z.enum(['low','medium','high','critical']),severity:z.number().min(1).max(10),department:z.string(),summary:z.string(),safety:z.array(z.string()),confidence:z.number().min(0).max(1),duplicateRisk:z.number().min(0).max(1),engineerBrief:z.string(),structuredComplaint:z.string()});

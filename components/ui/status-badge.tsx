@@ -1,0 +1,2 @@
+import { ComplaintStatus, Priority } from '@/lib/types';
+export function StatusBadge({status}:{status:ComplaintStatus|Priority}){const color=status==='critical'||status==='rejected'?'bg-red-500':status==='resolved'||status==='closed'?'bg-green-600':status==='high'?'bg-orange-500':'bg-teal-600';return <span className={`${color} rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide text-white`}>{status.replace('_',' ')}</span>}
