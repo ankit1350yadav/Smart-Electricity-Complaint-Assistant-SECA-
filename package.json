@@ -13,20 +13,24 @@
     "validate:source": "node scripts/validate-project.mjs"
   },
   "dependencies": {
-    "@supabase/ssr": "latest",
-    "@supabase/supabase-js": "latest",
-    "class-variance-authority": "latest",
-    "clsx": "latest",
-    "framer-motion": "latest",
-    "lucide-react": "latest",
-    "next": "15.3.5",
-    "next-themes": "latest",
-    "openai": "latest",
-    "recharts": "latest",
-    "tailwind-merge": "latest",
-    "tailwindcss-animate": "latest",
-    "zod": "latest"
-  },
+  "@supabase/ssr": "latest",
+  "@supabase/supabase-js": "latest",
+  "class-variance-authority": "latest",
+  "clsx": "latest",
+  "framer-motion": "latest",
+  "lucide-react": "latest",
+  "next": "15.3.5",
+  "next-themes": "latest",
+  "openai": "latest",
+  "react": "19.1.1",
+  "react-dom": "19.1.1",
+  "recharts": "latest",
+  "tailwind-merge": "latest",
+  "tailwindcss-animate": "latest",
+  "zod": "latest"
+},
+
+  
   "devDependencies": {
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
