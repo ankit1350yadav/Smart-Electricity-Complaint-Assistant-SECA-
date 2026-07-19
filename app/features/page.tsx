@@ -1,2 +1,31 @@
-import { Card } from '@/components/ui/card';import { Sidebar } from '@/components/layout/sidebar';import { AnalyticsChart } from '@/components/charts/analytics-chart';import { MapPanel } from '@/components/maps/map-panel';
-export default function Page(){const name='features'.replace('-',' ');return <main className="flex min-h-[calc(100vh-73px)]"><Sidebar/><section className="mx-auto w-full max-w-7xl space-y-6 p-6"><h1 className="text-3xl font-black capitalize">{name}</h1><div className="grid gap-4 md:grid-cols-3"><Card><b>Total Complaints</b><p className="text-4xl font-black">1,248</p></Card><Card><b>Pending</b><p className="text-4xl font-black text-saffron">186</p></Card><Card><b>Critical</b><p className="text-4xl font-black text-red-500">23</p></Card></div><Card><AnalyticsChart/></Card><MapPanel/></section></main>}
+// app/features/page.tsx
+'use client';
+import { Sidebar } from '@/components/layout/sidebar';
+import { useI18n } from '@/components/i18n/language-provider';
+
+export default function FeaturesPage() {
+  const { t } = useI18n();
+  return (
+    <main className="flex min-h-[calc(100vh-73px)]">
+      <Sidebar />
+      <section className="mx-auto w-full max-w-7xl space-y-6 p-6">
+        <h1 className="text-2xl font-semibold">{t('featuresTitle')}</h1>
+        <p className="text-muted-foreground">{t('featuresBody')}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+          <div className="p-4 border rounded-md">
+            <h3 className="font-semibold">Multilingual</h3>
+            <p className="text-sm text-muted-foreground">Supports Indian languages and English.</p>
+          </div>
+          <div className="p-4 border rounded-md">
+            <h3 className="font-semibold">Offline-first</h3>
+            <p className="text-sm text-muted-foreground">Queue and sync when online.</p>
+          </div>
+          <div className="p-4 border rounded-md">
+            <h3 className="font-semibold">AI analysis</h3>
+            <p className="text-sm text-muted-foreground">OpenAI-driven classification and safety guidance.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
