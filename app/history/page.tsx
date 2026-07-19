@@ -1,2 +1,32 @@
-import { Card } from '@/components/ui/card';import { Sidebar } from '@/components/layout/sidebar';import { AnalyticsChart } from '@/components/charts/analytics-chart';import { MapPanel } from '@/components/maps/map-panel';
-export default function Page(){const name='history'.replace('-',' ');return <main className="flex min-h-[calc(100vh-73px)]"><Sidebar/><section className="mx-auto w-full max-w-7xl space-y-6 p-6"><h1 className="text-3xl font-black capitalize">{name}</h1><div className="grid gap-4 md:grid-cols-3"><Card><b>Total Complaints</b><p className="text-4xl font-black">1,248</p></Card><Card><b>Pending</b><p className="text-4xl font-black text-saffron">186</p></Card><Card><b>Critical</b><p className="text-4xl font-black text-red-500">23</p></Card></div><Card><AnalyticsChart/></Card><MapPanel/></section></main>}
+// app/history/page.tsx
+'use client';
+import { Sidebar } from '@/components/layout/sidebar';
+import { useI18n } from '@/components/i18n/language-provider';
+
+export default function HistoryPage() {
+  const { t } = useI18n();
+  return (
+    <main className="flex min-h-[calc(100vh-73px)]">
+      <Sidebar />
+      <section className="mx-auto w-full max-w-7xl space-y-6 p-6">
+        <h1 className="text-2xl font-semibold">{t('historyTitle')}</h1>
+        <p className="text-muted-foreground">{t('historyBody')}</p>
+
+        <div className="space-y-3 mt-4">
+          <div className="border rounded p-3">
+            <div className="flex justify-between">
+              <div><strong>Outage near MG Road</strong><div className="text-sm text-muted-foreground">Submitted 2 days ago</div></div>
+              <div className="text-sm text-saffron">Resolved</div>
+            </div>
+          </div>
+          <div className="border rounded p-3">
+            <div className="flex justify-between">
+              <div><strong>Flickering lights</strong><div className="text-sm text-muted-foreground">Submitted 1 week ago</div></div>
+              <div className="text-sm text-rose-500">Open</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
