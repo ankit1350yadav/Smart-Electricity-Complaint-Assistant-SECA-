@@ -1,3 +1,26 @@
+// components/i18n/language-switcher.tsx
 'use client';
-import { useRouter, useSearchParams } from 'next/navigation';import { localeNames, locales, type Locale } from '@/lib/i18n/dictionaries';
-export function LanguageSwitcher(){const router=useRouter();const params=useSearchParams();const current=(params.get('lang')||'en') as Locale;return <label className="flex items-center gap-2 text-sm"><span className="sr-only">Language</span><select className="rounded-xl border border-border bg-white/70 px-3 py-2 dark:bg-slate-900/70" value={current} onChange={e=>{const next=new URLSearchParams(params);next.set('lang',e.target.value);router.push(`?${next.toString()}`)}}>{locales.map(locale=><option key={locale} value={locale}>{localeNames[locale]}</option>)}</select></label>}
+import React from 'react';
+import { useI18n } from '@/components/i18n/language-provider';
+import { localeNames } from '@/lib/i18n/dictionaries';
+
+export function LanguageSwitcher() {
+  const { locale, setLocale } = useI18n();
+  return (
+    <div className="flex items-center gap-2">
+      <label className="sr-only">Language</label>
+      <select
+        value={locale}
+        onChange={(e) => setLocale(e.target.value as any)}
+        className="rounded-md border px-2 py-1 text-sm"
+        aria-label="Language"
+      >
+        {Object.keys(localeNames).map((code) => (
+          <option key={code} value={code}>
+            {(localeNames as any)[code]}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
