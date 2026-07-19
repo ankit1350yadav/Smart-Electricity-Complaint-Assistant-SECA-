@@ -1,3 +1,26 @@
-import Link from 'next/link';import { Button } from '@/components/ui/button';import { Card } from '@/components/ui/card';import { JudgeDemo } from '@/components/demo/judge-demo';
-const features=['Multilingual text, voice, and image complaint intake','Offline-first PWA queue with automatic sync','AI classification, severity, priority, and safety guidance','Admin dashboard with analytics, map panel, and WhatsApp-ready updates'];
-export default function Home(){return <main className="mx-auto max-w-7xl p-6"><section className="grid items-center gap-8 py-20 md:grid-cols-2"><div><p className="font-bold text-saffron">Government-inspired AI grievance platform</p><h1 className="mt-3 text-5xl font-black tracking-tight">Report electricity problems safely with AI.</h1><p className="mt-5 text-lg opacity-80">SECA understands text, voice, and images in major Indian languages, works offline as a PWA, classifies risk, and creates engineer-ready reports.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/register"><Button>Get started</Button></Link><Link href="/complaints/new"><Button className="bg-navy">File complaint</Button></Link><Link href="/demo"><Button className="bg-saffron text-navy">3-minute demo</Button></Link></div></div><Card><div className="grid gap-4">{features.map(x=><div className="rounded-xl bg-white/60 p-4 dark:bg-slate-900/60" key={x}>⚡ {x}</div>)}</div></Card></section><section className="space-y-5 pb-16"><h2 className="text-3xl font-black">Hackathon judge walkthrough</h2><JudgeDemo/></section></main>}
+// app/page.tsx
+'use client';
+import Link from 'next/link';
+import { useI18n } from '@/components/i18n/language-provider';
+import { Button } from '@/components/ui/button';
+
+export default function Home() {
+  const { t } = useI18n();
+  return (
+    <main className="mx-auto max-w-7xl p-6">
+      <section className="grid items-center gap-8 py-20 md:grid-cols-2">
+        <div>
+          <p className="font-bold text-saffron">{t('appTitle')}</p>
+          <h1 className="mt-4 text-4xl font-extrabold">{t('homeHero')}</h1>
+          <div className="mt-6 flex gap-4">
+            <Link href="/demo"><Button>{t('tryDemo')}</Button></Link>
+            <Link href="/about" className="text-sm self-center">{t('navAbout')}</Link>
+          </div>
+        </div>
+        <div>
+          <div className="h-64 w-full bg-muted rounded-lg flex items-center justify-center">Screenshot / GIF</div>
+        </div>
+      </section>
+    </main>
+  );
+}
